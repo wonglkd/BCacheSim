@@ -12,7 +12,7 @@ from .styles import MARKERS
 
 try:
     from ..constants_meta import REGIONS, REGIONS_CANON, region_labels_short, region_labels_orig, region_labels, service_time
-except ImportError:
+except (ImportError, ModuleNotFoundError):
     from ..constants_public import REGIONS, REGIONS_CANON, region_labels_short, region_labels_orig, region_labels, service_time
 
 

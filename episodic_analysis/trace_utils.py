@@ -1,5 +1,5 @@
 try:
-    from .. import utils as cs_utils
+    from ..cachesim import utils as cs_utils
 except (ValueError, ImportError):
     import os
     import sys

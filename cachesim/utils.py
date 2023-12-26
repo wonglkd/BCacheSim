@@ -13,10 +13,10 @@ import json
 import sys
 import time
 from pathlib import Path
-from legacy_utils import BlkAccess
-from legacy_utils import read_processed_file_list_accesses
-from legacy_utils import read_processed_file_with_logical_ts  # noqa: F401
-from legacy_utils import GET_OPS, PUT_OPS, get_output_suffix  # noqa: F401
+from .legacy_utils import BlkAccess
+from .legacy_utils import read_processed_file_list_accesses
+from .legacy_utils import read_processed_file_with_logical_ts  # noqa: F401
+from .legacy_utils import GET_OPS, PUT_OPS, get_output_suffix  # noqa: F401
 
 
 def stream_processed_accesses(f, *, region=None, input_file_name=None, sample_ratio=None, start=None, **kwargs):

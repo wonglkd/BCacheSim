@@ -14,20 +14,20 @@ import compress_json
 import numpy as np
 import pandas as pd
 
-import admission_policies as aps
-import eviction_policies as evictp
-import dynamic_features as dyn_features
-import prefetchers
-import utils
-from utils import LOG_IOPS, ods, fmt_dur
+from . import admission_policies as aps
+from . import eviction_policies as evictp
+from . import dynamic_features as dyn_features
+from . import prefetchers
+from . import utils
+from .utils import LOG_IOPS, ods, fmt_dur
 
-from episodic_analysis.episodes import service_time
-from episodic_analysis.episodes import st_to_util
-from ep_helpers import _lookup_episode
-from ep_helpers import Timestamp
-from ep_helpers import record_service_time_get
-from ep_helpers import record_service_time_put
-from ep_helpers import AccessPlus
+from ..episodic_analysis.episodes import service_time
+from ..episodic_analysis.episodes import st_to_util
+from .ep_helpers import _lookup_episode
+from .ep_helpers import Timestamp
+from .ep_helpers import record_service_time_get
+from .ep_helpers import record_service_time_put
+from .ep_helpers import AccessPlus
 
 
 CACHE_LOCATIONS = {

@@ -13,16 +13,8 @@ import redis
 
 try:
     from .constants_meta import infer_trace_group
-except ImportError:
+except (ImportError, ModuleNotFoundError):
     from .constants_public import infer_trace_group
-
-
-ENV_CFG = load_dotenv()
-SIM_LOCATION = ENV_CFG.get('SIM_LOCATION', 'bcachesim')
-TMP_LOCATION = ENV_CFG.get('TMP_LOCATION', 'tmp')
-TRACE_LOCATION = ENV_CFG.get('TRACE_LOCATION', 'data')
-OUTPUT_LOCATION = ENV_CFG.get('OUTPUT_LOCATION', 'runs')
-RUNPY_LOCATION = f'{SIM_LOCATION}run_py.sh'
 
 
 def load_dotenv():
@@ -31,6 +23,14 @@ def load_dotenv():
         return {}
     with open(filename) as f:
         return dict([kv.split("=") for kv in f.read().strip().split("\n")])
+
+
+ENV_CFG = load_dotenv()
+SIM_LOCATION = ENV_CFG.get('SIM_LOCATION', 'bcachesim')
+TMP_LOCATION = ENV_CFG.get('TMP_LOCATION', 'tmp')
+TRACE_LOCATION = ENV_CFG.get('TRACE_LOCATION', 'data')
+OUTPUT_LOCATION = ENV_CFG.get('OUTPUT_LOCATION', 'runs')
+RUNPY_LOCATION = f'{SIM_LOCATION}run_py.sh'
 
 
 def get_redis_client(REDIS_HOST=None,

@@ -19,12 +19,12 @@ from sklearn.model_selection import train_test_split
 import numpy as np
 import spookyhash
 
-from sim_features import count_feat
-from utils import LOG_REQ
-from utils import ods
-import utils
-from ep_helpers import AccessPlus
-from episodic_analysis.episodes import service_time
+from .sim_features import count_feat
+from .utils import LOG_REQ
+from .utils import ods
+from . import utils
+from .ep_helpers import AccessPlus
+from ..episodic_analysis.episodes import service_time
 
 
 class AP(object):

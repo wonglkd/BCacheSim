@@ -11,14 +11,14 @@ try:
 except ModuleNotFoundError:
     print("Unable to import lightgbm")
 
-import admission_policies as aps
-import sim_features
-import utils
-from utils import LOG_DEBUG, LOG_REQ, ods
+from . import admission_policies as aps
+from . import sim_features
+from . import utils
+from .utils import LOG_DEBUG, LOG_REQ, ods
 
-from ep_helpers import _get_chunks_for_episode
-from ep_helpers import _lookup_episode
-from ep_helpers import Timestamp
+from .ep_helpers import _get_chunks_for_episode
+from .ep_helpers import _lookup_episode
+from .ep_helpers import Timestamp
 
 
 class QueueItem(object):

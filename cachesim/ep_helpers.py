@@ -3,10 +3,10 @@ from collections import namedtuple
 import functools
 import shelve
 
-from utils import ods
-from legacy_utils import GET_OPS, PUT_OPS
-from episodic_analysis.episodes import Episode
-from episodic_analysis.episodes import service_time
+from .utils import ods
+from .legacy_utils import GET_OPS, PUT_OPS
+from ..episodic_analysis.episodes import Episode
+from ..episodic_analysis.episodes import service_time
 
 
 class AccessPlus(object):

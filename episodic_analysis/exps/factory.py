@@ -1,2 +1,5 @@
 from .factory_base import *
-from .factory_meta import *
+try:
+    from .factory_meta import *
+except (ImportError, ModuleNotFoundError):
+    pass

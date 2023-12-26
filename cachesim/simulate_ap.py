@@ -3,7 +3,7 @@
 from jsonargparse import ArgumentParser, ActionConfigFile, ActionYesNo
 
 
-import sim_cache
+from . import sim_cache
 
 
 def get_parser():

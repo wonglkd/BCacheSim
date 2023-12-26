@@ -3,9 +3,9 @@ from enum import Enum, unique
 import sys
 
 try:
-    from episodic_analysis.constants_meta import trace_has_pipeline
+    from ..episodic_analysis.constants_meta import trace_has_pipeline
 except ImportError:
-    from episodic_analysis.constants_public import trace_has_pipeline
+    from ..episodic_analysis.constants_public import trace_has_pipeline
 
 
 @unique

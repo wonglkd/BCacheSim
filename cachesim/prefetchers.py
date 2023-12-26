@@ -6,12 +6,12 @@ try:
 except ModuleNotFoundError:
     print("Unable to import lightgbm")
 
-import utils
-from utils import ods
-from episodic_analysis.episodes import offset_to_chunks
-from ep_helpers import _get_chunks_for_episode
-from ep_helpers import _prefetchable_chunks
-from ep_helpers import AccessPlus
+from . import utils
+from .utils import ods
+from ..episodic_analysis.episodes import offset_to_chunks
+from .ep_helpers import _get_chunks_for_episode
+from .ep_helpers import _prefetchable_chunks
+from .ep_helpers import AccessPlus
 
 
 class Prefetcher(object):

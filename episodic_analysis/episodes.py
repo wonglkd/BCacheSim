@@ -11,9 +11,8 @@ from . import trace_utils
 
 try:
     from .constants_meta import service_time
-except ImportError:
+except (ImportError, ModuleNotFoundError):
     from .constants_public import service_time
-    service_time = service_time_orca
 
 def st_to_util(service_time, sample_ratio=None, disks=36, duration_s=None):
     return service_time / disks * 100 / sample_ratio / duration_s
