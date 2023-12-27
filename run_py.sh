@@ -9,14 +9,9 @@ PYTHON=$1
 # shellcheck disable=SC2124
 ARGS=${@:2}
 
-ENVS=/users/dlwong/apps/micromamba/envs
-# Needed when running by brooce
-PATH=/users/dlwong/.local/bin:$PATH
-
 case "$PYTHON" in
-    pypy) PYTHON_BIN="${ENVS}/cachelib-pypy-3.9/bin/python" ;;
-    pypy3.8) PYTHON_BIN="${ENVS}/cachelib-pypy-3.8/bin/python" ;;
-    py|py3.11) PYTHON_BIN="${ENVS}/cachelib-py-3.11/bin/python" ;;
+    pypy) PYTHON_BIN="pypy" ;;
+    py) PYTHON_BIN="python" ;;
     *) echo "Unknown PYTHON: $PYTHON"; exit 1;
 esac
 
