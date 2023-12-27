@@ -49,6 +49,13 @@ Note: scikit-learn only works with PyPy 3.8, not 3.9 yet. LightGBM requires skle
     `Error: No module named 'sklearn.__check_build._check_build'`
 
 ### Pip
+
+```
+pip install -r install/requirements.txt
+```
+
+which is equivalent to
+
 ```
 # For simulator
 pip install lightgbm numpy pandas scikit-learn
@@ -63,4 +70,6 @@ pip install scipy
 pip install redis
 # For cache-analysis
 pip install matplotlib seaborn
+# Advanced policies
+pip install pqdict
 ```

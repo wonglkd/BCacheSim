@@ -1,0 +1,15 @@
+lightgbm
+numpy
+pandas
+scikit-learn
+spookyhash
+jsonargparse
+compress_json
+compress_pickle
+retry
+psutil
+tqdm
+scipy
+redis
+matplotlib seaborn
+pqdict
