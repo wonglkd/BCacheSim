@@ -28,7 +28,9 @@ cd $DIR/..
     # PYTHON_BIN cannot be quoted.
     # stdbuf -eL -oL makes stderr and stdout be line buffered.
     # shellcheck disable=SC2086
-    stdbuf -eL -oL /usr/bin/time -v $PYTHON_BIN $ARGS
+    # Release: skip time
+    # stdbuf -eL -oL /usr/bin/time -v $PYTHON_BIN $ARGS
+    stdbuf -eL -oL $PYTHON_BIN $ARGS
     # removed -u
     exit
 }
