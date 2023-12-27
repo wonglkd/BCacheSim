@@ -1,7 +1,7 @@
-lightgbm
-numpy
-pandas
-scikit-learn
+lightgbm==3.3.5
+numpy==1.24.2
+pandas==1.5.3
+scikit-learn==1.2.2
 spookyhash
 jsonargparse
 compress_json
@@ -9,7 +9,8 @@ compress_pickle
 retry
 psutil
 tqdm
-scipy
+scipy==1.10.1
 redis
-matplotlib seaborn
+matplotlib==3.7.1
+seaborn==0.12.1
 pqdict
