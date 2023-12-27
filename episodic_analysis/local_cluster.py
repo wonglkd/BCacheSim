@@ -28,7 +28,7 @@ def load_dotenv():
 ENV_CFG = load_dotenv()
 SIM_LOCATION = ENV_CFG.get('SIM_LOCATION', 'bcachesim')
 TMP_LOCATION = ENV_CFG.get('TMP_LOCATION', 'tmp')
-TRACE_LOCATION = ENV_CFG.get('TRACE_LOCATION', 'data')
+TRACE_LOCATION = ENV_CFG.get('TRACE_LOCATION', 'data/tectonic')
 OUTPUT_LOCATION = ENV_CFG.get('OUTPUT_LOCATION', 'runs')
 RUNPY_LOCATION = f'{SIM_LOCATION}run_py.sh'
 
@@ -265,10 +265,8 @@ def fmt_subtrace(subtrace="full", start=0, sample_ratio=None):
 def tracefilename(sample_ratio=None, region=None, start=0, trace_group=None, *, subtrace="full", not_exists_ok=False, trace_location=TRACE_LOCATION):
     if trace_group is None:
         trace_group = infer_trace_group(region)
-    if not trace_group.startswith('ws/'):
-        trace_group = 'ws/' + trace_group
-    filename1 = f'{trace_location}/{trace_group}/processed/{region}/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
-    filename2 = f'{trace_location}/{trace_group}/{region}/processed/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
+    filename1 = f'{trace_location}/ws/{trace_group}/processed/{region}/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
+    filename2 = f'{trace_location}/ws/{trace_group}/{region}/processed/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
     filename3 = f'{trace_location}/{trace_group}/{region}/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
     if os.path.exists(filename1):
         return filename1

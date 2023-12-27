@@ -1,5 +1,5 @@
 from .episodes import service_time
-import dynamic_features
+from ..cachesim import dynamic_features
 
 import lightgbm as lgb
 import numpy as np

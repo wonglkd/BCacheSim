@@ -21,7 +21,7 @@ case "$PYTHON" in
 esac
 
 DIR="$(cd "$(dirname "$0")" && pwd)"
-cd $DIR
+cd $DIR/..
 # Wrap in braces so Bash loads it all at start, to avoid errors for long-running
 # scripts when editing this file
 {

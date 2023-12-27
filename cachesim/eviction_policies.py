@@ -642,7 +642,7 @@ class QueueCache(EvictionPolicy):
         prefetch = options.prefetch
 
         self.lru = lru
-        if options.eviction_policy.startswith('ttl'):
+        if options.eviction_policy and options.eviction_policy.startswith('ttl'):
             self.cache = TTLPolicy()
         else:
             self.cache = LRUPolicy()

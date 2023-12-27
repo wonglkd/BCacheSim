@@ -25,12 +25,11 @@ Supported eviction policies
 - episodic_analysis: 
 - scripts/: scripts for processing traces
 
-## Usage
-```
-```
-TODO
-
 ## Installation
+
+You may install packages via Conda or Pip, which will be sufficient to run the simulator.
+
+For further research and development, you may wish to use a cluster manager to run many experiments in parallel (you can write an adaptor to your preferred one by modifying episodic_analysis/local_cluster.py). I use brooce with my experiment filesystem mounted on NFS -- you can clone my [fork](https://github.com/wonglkd/brooce) if you wish. This is not necessary to run basic experiments.
 
 ### Conda (recommended)
 

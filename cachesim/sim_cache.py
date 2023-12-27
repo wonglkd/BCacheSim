@@ -480,19 +480,20 @@ class StatsDumper(object):
         for k, v in ods.get_all_with_prefix("service_time_writes/op/"):
             msg += f"    {k} - {st_to_util(v, **util_kwargs)*100:.1f}% \n "
 
-        for kk in ["ns", "user"]:
-            msg += f"IOs by {kk} \n "
-            for k, v in ods.get_all_with_prefix(f"iops_requests/{kk}/"):
-                msg += f"    {k} - {v} \n "
-            msg += f"GET (No Cache) ST - {st_to_util(ods.get('service_time_nocache'), **util_kwargs)*100:.1f}% \n "
-            for k, v in ods.get_all_with_prefix(f"service_time_nocache/{kk}/"):
-                msg += f"    {k} - {st_to_util(v, **util_kwargs)*100:.1f}% \n "
-            msg += f"PUTs       - {ods.get('puts_ios')} \n "
-            for k, v in ods.get_all_with_prefix(f"puts_ios/{kk}/"):
-                msg += f"    {k} - {v} \n "
-            msg += f"PUT ST       - {st_to_util(ods.get('service_time_writes'), **util_kwargs)*100:.1f}% \n "
-            for k, v in ods.get_all_with_prefix(f"service_time_writes/{kk}/"):
-                msg += f"    {k} - {st_to_util(v, **util_kwargs)*100:.1f}% \n "
+        # Too verbose for release. TODO: Make this an option.
+        # for kk in ["ns", "user"]:
+        #     msg += f"IOs by {kk} \n "
+        #     for k, v in ods.get_all_with_prefix(f"iops_requests/{kk}/"):
+        #         msg += f"    {k} - {v} \n "
+        #     msg += f"GET (No Cache) ST - {st_to_util(ods.get('service_time_nocache'), **util_kwargs)*100:.1f}% \n "
+        #     for k, v in ods.get_all_with_prefix(f"service_time_nocache/{kk}/"):
+        #         msg += f"    {k} - {st_to_util(v, **util_kwargs)*100:.1f}% \n "
+        #     msg += f"PUTs       - {ods.get('puts_ios')} \n "
+        #     for k, v in ods.get_all_with_prefix(f"puts_ios/{kk}/"):
+        #         msg += f"    {k} - {v} \n "
+        #     msg += f"PUT ST       - {st_to_util(ods.get('service_time_writes'), **util_kwargs)*100:.1f}% \n "
+        #     for k, v in ods.get_all_with_prefix(f"service_time_writes/{kk}/"):
+        #         msg += f"    {k} - {st_to_util(v, **util_kwargs)*100:.1f}% \n "
 
         msg += (
             f"Episodes admitted - {logjson['results']['TotalEpisodesAdmitted']} (Analysis: {logjson['results']['AnalysisOfflineEpisodesAdmitted']}) \n "
