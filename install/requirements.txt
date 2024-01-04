@@ -6,6 +6,7 @@ spookyhash
 jsonargparse
 compress_json
 compress_pickle
+commentjson
 retry
 psutil
 tqdm

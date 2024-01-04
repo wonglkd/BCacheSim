@@ -1,3 +1,5 @@
+# BCacheSim: Cache Simulator specialized for flash caching in bulk storage
+
 This repository contains:
 
 1. BCacheSim, a Python simulator with a focus on flash
@@ -14,6 +16,8 @@ Supported admission policies:
 Supported eviction policies
 - LRU
 - FIFO
+
+
 
 ## Directory structure
 
@@ -73,3 +77,27 @@ pip install matplotlib seaborn
 # Advanced policies
 pip install pqdict
 ```
+
+## Datasets
+
+Traces are available at https://ftp.pdl.cmu.edu/pub/datasets/Baleen24/. We ask that academic works using any code or traces to cite Baleen[^1] and, if appropriate, CacheLib [^2] and Tectonic [^3].
+
+For the Baleen-FAST24 repository (meant for those trying to reproduce results in the Baleen paper), please see https://github.com/wonglkd/Baleen-FAST24.
+
+## Contact
+
+For further questions, please contact [Daniel Lin-Kit Wong](https://wonglkd.fi-de.net/).
+
+## References
+
+[^1]: **Baleen: ML Admission & Prefetching for Flash Caches** <br>
+      Daniel Lin-Kit Wong, Hao Wu, Carson Molder, Sathya Gunasekar, Jimmy Lu, Snehal Khandkar, Abhinav Sharma, Daniel S. Berger, Nathan Beckmann, Gregory R. Ganger <br>
+      *USENIX FAST 2024*
+
+[^2]: **The CacheLib Caching Engine: Design and Experiences at Scale** <br>
+      Benjamin Berg, Daniel S. Berger, Sara McAllister, Isaac Grosof, Sathya Gunasekar, Jimmy Lu, Michael Uhlar, Jim Carrig, Nathan Beckmann, Mor Harchol-Balter, and Gregory R. Ganger <br>
+      *USENIX OSDI 2020*
+
+[^3]: **Facebook's Tectonic Filesystem: Efficiency from Exascale** <br>
+      Satadru Pan, Theano Stavrinos, Yunqiao Zhang, Atul Sikaria, Pavel Zakharov, Abhinav Sharma, Mike Shuey, Richard Wareing, Monika Gangapuram, Guanglei Cao, Christian Preseau, Pratap Singh, Kestutis Patiejunas, and JR Tipton, Ethan Katz-Bassett, and Wyatt Lloyd <br>
+      *USENIX FAST 2021*

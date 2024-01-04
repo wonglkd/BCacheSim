@@ -9,6 +9,9 @@ PYTHON=$1
 # shellcheck disable=SC2124
 ARGS=${@:2}
 
+# TODO - switch environment if available
+# conda activate --name cachelib-py-3.11
+
 case "$PYTHON" in
     pypy) PYTHON_BIN="pypy" ;;
     py) PYTHON_BIN="python" ;;
