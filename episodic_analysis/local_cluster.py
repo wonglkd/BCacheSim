@@ -262,19 +262,21 @@ def fmt_subtrace(subtrace="full", start=0, sample_ratio=None):
     return f"{subtrace}_{start:g}_{fmt_sample_ratio(sample_ratio)}"
 
 
-def tracefilename(sample_ratio=None, region=None, start=0, trace_group=None, *, subtrace="full", not_exists_ok=False, trace_location=TRACE_LOCATION):
+def tracefilename(sample_ratio=None, region=None, start=0, trace_group=None, *, subtrace="full", not_exists_ok=False, trace_location=None):
     if trace_group is None:
         trace_group = infer_trace_group(region)
+    if trace_location is None:
+        trace_location = TRACE_LOCATION
     filename1 = f'{trace_location}/ws/{trace_group}/processed/{region}/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
     filename2 = f'{trace_location}/ws/{trace_group}/{region}/processed/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
     filename3 = f'{trace_location}/{trace_group}/{region}/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
     if os.path.exists(filename1):
         return filename1
-    if os.path.exists(filename3):
-        return filename3
-    if not os.path.exists(filename2) and not not_exists_ok:
-        print(f"Warning: {filename2} does not exist")
-    return filename2
+    if os.path.exists(filename2):
+        return filename2
+    if not os.path.exists(filename3) and not not_exists_ok:
+        print(f"Warning: {filename3} does not exist")
+    return filename3
 
 
 def prep_jobname(name):
