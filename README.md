@@ -63,9 +63,9 @@ which is equivalent to
 ```
 # For simulator
 pip install lightgbm numpy pandas scikit-learn
-pip install spookyhash jsonargparse compress_json compress_pickle retry
+pip install spookyhash jsonargparse compress_json compress_pickle retry commentjson
 # Optional
-pip install psutil
+pip install psutil ipywidgets
 # optional: pympler.tracker
 # Scripts
 pip install tqdm

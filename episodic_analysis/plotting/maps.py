@@ -364,8 +364,8 @@ def get_short_label(x):
 
 
 def fill_metadata(dfc_raw_):
-    dfc_raw_['RegionLabel'] = dfc_raw_['Region'].apply(lambda x: region_labels[x])
-    dfc_raw_['RegionLabelOrig'] = dfc_raw_['Region'].apply(lambda x: region_labels_orig[x])
+    dfc_raw_['RegionLabel'] = dfc_raw_['Region'].apply(lambda x: region_labels.get(x, x))
+    dfc_raw_['RegionLabelOrig'] = dfc_raw_['Region'].apply(lambda x: region_labels_orig.get(x, x))
     dfc_raw_['AdmissionPolicyLabel'] = dfc_raw_['AdmissionPolicy'].apply(lambda x: ap_label_[x][0] if x in ap_label_ else x)
     dfc_raw_['Prefetching'] = dfc_raw_.apply(lambda x: lbs[(x[l_pf_r], x[l_pf_w])], axis=1)
     dfc_raw_['PlotLabel'] = dfc_raw_.apply(lambda x: ap_label_[x['AdmissionPolicy']][0] + ' ' + x['Prefetching'], axis=1)

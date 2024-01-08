@@ -44,13 +44,12 @@ breakdown_colormap = {
 
 
 def maxstats(row, idx=None, idx_label=None):
-    jx = compress_json.load(row['Filename'])
-    if 'stats_batch' in jx:
-        sb = jx['stats_batch']
-    else:
+    if os.path.exists(row['Filename'].replace(".lzma", ".stats.lzma")):
         jxs = compress_json.load(row['Filename'].replace(".lzma", ".stats.lzma"))
         sb = jxs['batches']
-    # ss = jx['stats']
+    else:
+        jx = compress_json.load(row['Filename'])
+        sb = jx['stats_batch']
     dst = np.diff(sb['service_time_used_stats'], prepend=0)
     # assert row['PeakServiceTime
     ret = {'PeakSTInterval': np.argmax(dst)}
