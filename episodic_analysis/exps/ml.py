@@ -33,7 +33,7 @@ class ExpML(ExpSizeWR):
             filtercount=filtercount, granularity=granularity, learned_size=learned_size,
             train_ts_start=train_ts_start, train_ts_end=train_ts_end,
             queue=queue, valid_kwargs=valid_kwargs, **kwargs)
-        model_proj_path = f"{TMP_LOCATION}/{model_exp}"
+        model_proj_path = f"{local_cluster.TMP_LOCATION}/{model_exp}"
         eviction_age = 3600*2
         filename = f"ml-ea-{eviction_age:g}.model"
         self.model_path = f"{model_proj_path}/{filename}"
