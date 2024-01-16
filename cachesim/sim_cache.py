@@ -1463,19 +1463,21 @@ def simulate_cache_driver(options):
     episodes = None
     if options.offline_ap_decisions:
         print(f"Loading offline decisions {options.offline_ap_decisions}")
-        assert os.path.exists(options.offline_ap_decisions)
-        try:
-            episodes = utils.compress_load(options.offline_ap_decisions)
-        except (OSError, TypeError, pickle.UnpicklingError, EOFError):
-            if os.path.exists(options.offline_ap_decisions):
-                filesize = os.stat(options.offline_ap_decisions).st_size / 1048576
-                filesize = f'{filesize:g}M'
-                print("Bad file: " + filesize)
-            else:
-                print("File no longer exists")
-            if os.path.exists(options.offline_ap_decisions) and time.time() - os.path.getmtime(options.offline_ap_decisions) > 60*5:
-                utils.rm_missing_ok(options.offline_ap_decisions)
-            raise
+        if not os.path.exists(options.offline_ap_decisions):
+            print("Failed to load - does not exist")
+        else:
+            try:
+                episodes = utils.compress_load(options.offline_ap_decisions)
+            except (OSError, TypeError, pickle.UnpicklingError, EOFError):
+                if os.path.exists(options.offline_ap_decisions):
+                    filesize = os.stat(options.offline_ap_decisions).st_size / 1048576
+                    filesize = f'{filesize:g}M'
+                    print("Bad file: " + filesize)
+                else:
+                    print("File no longer exists")
+                if os.path.exists(options.offline_ap_decisions) and time.time() - os.path.getmtime(options.offline_ap_decisions) > 60*5:
+                    utils.rm_missing_ok(options.offline_ap_decisions)
+                raise
 
     ap = aps.construct(
         options.ap, options,

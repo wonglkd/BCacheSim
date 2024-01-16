@@ -270,10 +270,13 @@ def tracefilename(sample_ratio=None, region=None, start=0, trace_group=None, *, 
     filename1 = f'{trace_location}/ws/{trace_group}/processed/{region}/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
     filename2 = f'{trace_location}/ws/{trace_group}/{region}/processed/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
     filename3 = f'{trace_location}/{trace_group}/{region}/{fmt_subtrace(subtrace, start, sample_ratio)}.trace'
+    filename4 = '../' + filename3
     if os.path.exists(filename1):
         return filename1
     if os.path.exists(filename2):
         return filename2
+    if os.path.exists(filename4):
+        return filename4
     if not os.path.exists(filename3) and not not_exists_ok:
         print(f"Warning: {filename3} does not exist")
     return filename3
